@@ -8,6 +8,7 @@
 [![Weissman Score](https://img.shields.io/badge/Weissman%20Score-5.2-gold)](#)
 
 > 🚨 **Warning**: This library is **not** for real compression use. It's satire. It's sarcasm. It's suspiciously brilliant.
+> but it works apparently
 
 ---
 
@@ -19,12 +20,13 @@ It uses **center-based binary entropy encoding** with **Weissman Score optimizat
 
 ### ✨ Features
 
-- 🤹 **Multiple fake algorithms**: Choose from `RLE`, `STK`, `TNT`, and `ZPH`
+- 🤹 **Multiple fake algorithms**: Choose from `rle`, `stk`, `tnt`, `zph`, and the legendary `middle-out`
 - 🎩 **Auto-generated Weissman Scores** that _always_ look impressive
 - ⚙️ **`.middleoutrc` config support** for maximum enterprise readiness
 - 🧪 **Fully tested** with Jest (because fake compression deserves real tests)
 - 💻 **CLI support** for compression & decompression
 - 📊 **TypeScript support** with beautiful IntelliSense
+- 🔒 **MO:: encoding format** for maximum authenticity
 
 ---
 
@@ -51,7 +53,7 @@ const input = "The quick brown fox jumps over the lazy dog";
 
 // Compress with default algorithm
 const compressed = middleOutCompress(input);
-console.log(compressed); // 🗜️ Super compressed string
+console.log(compressed); // MO::middle-out:compressed_data::WEISSMAN::4.20
 
 // Decompress back to original
 const decompressed = middleOutDecompress(compressed);
@@ -62,7 +64,7 @@ console.log(decompressed); // Should match original (hopefully)
 
 ```typescript
 const compressed = middleOutCompress(input, {
-  algorithm: "rle", // or 'stk', 'tnt', 'zph'
+  algorithm: "rle", // or 'stk', 'tnt', 'zph', 'middle-out'
 });
 ```
 
@@ -75,18 +77,31 @@ const score = getWeissmanScore(input, compressed, "rle");
 console.log(score); // 📈 "🏅 Weissman Score (RLE): 5.13 — You're basically a legend."
 ```
 
+### Low-Level Encoding/Decoding
+
+```typescript
+import { encodeMO, decodeMO } from "middleout";
+
+// Encode compressed data with Weissman score
+const encoded = encodeMO("rle", "a3b2c1", 4.2);
+// Returns: "MO::rle:a3b2c1::WEISSMAN::4.20"
+
+// Decode to extract components
+const decoded = decodeMO("MO::rle:a3b2c1::WEISSMAN::4.20");
+// Returns: { algorithm: "rle", compressedData: "a3b2c1", weissmanScore: 4.2 }
+```
+
 ---
 
 ## 🧬 Algorithms
 
-| Algorithm | Description                     | Best Use Case                                                       |
-| --------- | ------------------------------- | ------------------------------------------------------------------- |
-| `rle`     | Run-Length Encoding             | Strings with repeating characters. Classic. Predictable. Overhyped. |
-| `stk`     | Stack-based reverse compression | When you want to reverse the universe                               |
-| `tnt`     | Ternary Nibble Toggler          | Converts to base-3, toggles bits, pretends it's efficient           |
-| `zph`     | Zero-Point Hashing              | Fake hash with made-up dictionary. Very scientific.                 |
-
-All compressed outputs are suffixed with `⟩[algo]` for easy identification during decompression.
+| Algorithm    | Name                           | Description                                     | Best For                                                                                         |
+| ------------ | ------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `rle`        | 🧱 **Run-Length Encoding**     | Because repeating letters are just lazy.        | Strings with repeating characters. Classic. Predictable. Overhyped. Like vinyl but for bytes.    |
+| `stk`        | 🌀 **Stack Trace Kompression** | For your inner Java debugger.                   | When you want to reverse the universe by pretending it's all just stack traces. Dev trauma fuel. |
+| `tnt`        | 💣 **Textual Noise Trimmer**   | It removes "um", "uh", and sometimes your soul. | Converts to base-3, toggles pseudo-bits, and whispers to the CPU: "Trust me, I'm fast."          |
+| `zph`        | 🧬 **Zero-Pattern Hider**      | Because zeroes don't deserve to be seen.        | Hashes everything with a fake dictionary. Quantum-sounding. Zero proof. Maximum vibes.           |
+| `middle-out` | 🧠 **Middle-Out Compression**  | The one, the myth, the legend.                  | The mythical algorithm. Splits from the middle like a coding Moses. Nobody knows how it works.   |
 
 ---
 
@@ -97,21 +112,39 @@ All compressed outputs are suffixed with `⟩[algo]` for easy identification dur
 npx middleout compress "some text" --algorithm rle
 
 # Decompress
-npx middleout decompress "sometext⟩rle"
+npx middleout decompress "MO::rle:s1o1m1e1 1t1e1x1t1::WEISSMAN::3.45"
 
 # Show Weissman Score
-npx middleout score "original" "compressed⟩rle"
+npx middleout score "original" "MO::rle:compressed::WEISSMAN::4.20"
 ```
 
 ### Configuration via `.middleoutrc`
 
 ```json
 {
-  "algorithm": "stk",
+  "algorithm": "middle-out",
   "weissmanOptimized": true,
   "showScore": true
 }
 ```
+
+---
+
+## 🔒 MO:: Encoding Format
+
+All compressed output uses our proprietary **MO::** format:
+
+```
+MO::<algorithm>:<compressed_data>::WEISSMAN::<score>
+```
+
+**Examples:**
+
+- `MO::rle:a3b2c1::WEISSMAN::4.20`
+- `MO::middle-out:QkxBSCBCTEFI::WEISSMAN::5.12`
+- `MO::tnt:101010110::WEISSMAN::3.89`
+
+This format ensures maximum compatibility with Pied Piper infrastructure and provides built-in Weissman score validation.
 
 ---
 
@@ -128,6 +161,7 @@ Our test suite includes:
 - ✔️ Edge cases (empty files, binary data, unicode)
 - ✔️ Algorithm-specific behavior
 - ✔️ CLI integration tests
+- ✔️ MO:: format encoding/decoding
 
 ---
 
@@ -140,6 +174,7 @@ The Weissman score is a fictional metric from _Silicon Valley_ that measures com
 getWeissmanScore(original, compressed, "rle"); // Conservative scores
 getWeissmanScore(original, compressed, "tnt"); // Wildly optimistic scores
 getWeissmanScore(original, compressed, "zph"); // Mysteriously perfect scores
+getWeissmanScore(original, compressed, "middle-out"); // Legendary scores
 ```
 
 > **Note**: Our implementation guarantees a score between **2.89-5.2**, because anything higher would be suspicious.
@@ -150,9 +185,11 @@ getWeissmanScore(original, compressed, "zph"); // Mysteriously perfect scores
 
 - **BREAKING**: Removed `pip_piper_compress()` - we're not savages
 - **BREAKING**: `compress()` now returns a `MiddleOutResult` object
-- **NEW**: Multiple algorithm support
+- **BREAKING**: All output now uses **MO::** encoding format
+- **NEW**: Multiple algorithm support including the mythical `middle-out`
 - **NEW**: Weissman Score integration
 - **NEW**: TypeScript definitions
+- **NEW**: `encodeMO()` and `decodeMO()` utilities
 
 ### Migration Guide
 
@@ -165,7 +202,10 @@ const result = middleOutCompress(data, {
   algorithm: "middle-out",
   weissmanOptimized: true,
 });
-console.log(`Weissman Score: ${result.weissmanScore}`);
+
+// Extract components from MO:: format
+const { algorithm, compressedData, weissmanScore } = decodeMO(result);
+console.log(`Weissman Score: ${weissmanScore}`);
 ```
 
 ---
@@ -180,6 +220,7 @@ Why not? You could be building rockets. Or you could be simulating world-changin
 - 📱 Compatible with Nucleus integration (when it eventually works)
 - 🏆 Guaranteed to impress VCs at demo day
 - 🔒 More secure than Gavin Belson's password manager
+- 🧬 MO:: format ensures enterprise-grade authenticity
 
 _\*Not actually real-world applications_
 
@@ -193,6 +234,7 @@ Pull requests welcome! Please ensure:
 - Weissman Scores remain within believable bounds
 - All compression is lossless (we have standards)
 - JSDoc comments include at least one Silicon Valley reference
+- New algorithms integrate with the MO:: encoding format
 
 ---
 
@@ -215,3 +257,6 @@ MIT – Copyright © 2025
 
 > _"If it's not Weissman-approved, did you even compress it?"_  
 > — The middleOut.js Team
+
+> _"MO:: format is the future. The future is MO::."_  
+> — Probably Erlich Bachman
