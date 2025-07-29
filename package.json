@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts --format esm,cjs --dts && cp -r bin dist/",
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
     "test": "jest"
   },
