@@ -37,3 +37,4 @@ dist/
 coverage/
 *.log
 
+local_business.ts

@@ -13,9 +13,6 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "typescript": "^5.8.3"
-  },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.0.5",
@@ -23,6 +20,7 @@
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.16",
-    "tsup": "^8.5.0"
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
   }
 }
