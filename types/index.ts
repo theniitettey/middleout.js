@@ -3,3 +3,9 @@ export interface CompressionResult {
   compressed: string;
   weissmanScore: number;
 }
+
+export interface MiddleOutConfig {
+  aggressionLevel: number;
+  preserveWhitespace: boolean;
+  targetWeissman: number;
+}
