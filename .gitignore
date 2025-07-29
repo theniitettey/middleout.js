@@ -1,0 +1,39 @@
+# Node
+node_modules/
+dist/
+.cache/
+*.log
+*.lock
+
+# Testing
+coverage/
+*.test.ts.snap
+
+# TypeScript
+*.tsbuildinfo
+
+# VSCode
+.vscode/
+.env
+
+# macOS
+.DS_Store
+
+# CLI builds (if you copy CLI into dist/bin)
+bin/*.js
+bin/*.js.map
+
+# Configs
+.env*
+.middleoutrc
+
+# Lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Dev builds and tests
+dist/
+coverage/
+*.log
+
