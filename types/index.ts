@@ -5,6 +5,7 @@ export interface CompressionResult {
 }
 
 export interface MiddleOutConfig {
+  algorithm: "rle" | "stk" | "tnt" | "zph";
   aggressionLevel: number;
   preserveWhitespace: boolean;
   targetWeissman: number;
