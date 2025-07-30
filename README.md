@@ -24,20 +24,43 @@ It uses **center-based binary entropy encoding** with **Weissman Score optimizat
 - 🎩 **Auto-generated Weissman Scores** that _always_ look impressive
 - ⚙️ **`.middleoutrc` config support** for maximum enterprise readiness
 - 🧪 **Fully tested** with Jest (because fake compression deserves real tests)
-- 💻 **CLI support** for compression & decompression
+- 💻 **Optional CLI support** for compression & decompression
 - 📊 **TypeScript support** with beautiful IntelliSense
 - 🔒 **MO:: encoding format** for maximum authenticity
+- 🪶 **Lightweight**: Core library has zero dependencies
 
 ---
 
 ## 📦 Installation
 
+### Option 1: Library Only (Recommended)
+
+Perfect for using in your applications with minimal overhead:
+
 ```bash
-npm install middleout
+npm install middleout.js
 # or
-yarn add middleout
+yarn add middleout.js
 # or (if you're feeling dangerous)
-pnpm add middleout
+pnpm add middleout.js
+```
+
+### Option 2: Library + CLI
+
+For the full middleOut experience with command-line tools:
+
+```bash
+npm install middleout.js chalk commander
+# or
+yarn add middleout.js chalk commander
+```
+
+### Option 3: Global CLI Installation
+
+Install globally for system-wide middleOut compression powers:
+
+```bash
+npm install -g middleout.js chalk commander
 ```
 
 ---
@@ -47,7 +70,7 @@ pnpm add middleout
 ### Basic Compression
 
 ```typescript
-import { middleOutCompress, middleOutDecompress } from "middleout";
+import { middleOutCompress, middleOutDecompress } from "middleout.js";
 
 const input = "The quick brown fox jumps over the lazy dog";
 
@@ -71,7 +94,7 @@ const compressed = middleOutCompress(input, {
 ### Weissman Score Calculation
 
 ```typescript
-import { getWeissmanScore } from "middleout";
+import { getWeissmanScore } from "middleout.js";
 
 const score = getWeissmanScore(input, compressed, "rle");
 console.log(score); // 📈 "🏅 Weissman Score (RLE): 5.13 — You're basically a legend."
@@ -80,7 +103,7 @@ console.log(score); // 📈 "🏅 Weissman Score (RLE): 5.13 — You're basicall
 ### Low-Level Encoding/Decoding
 
 ```typescript
-import { encodeMO, decodeMO } from "middleout";
+import { encodeMO, decodeMO } from "middleout.js";
 
 // Encode compressed data with Weissman score
 const encoded = encodeMO("rle", "a3b2c1", 4.2);
@@ -107,15 +130,34 @@ const decoded = decodeMO("MO::rle:a3b2c1::WEISSMAN::4.20");
 
 ## 🖥️ CLI Usage
 
+> **Note**: CLI requires optional dependencies. Install with: `npm install chalk commander`
+
 ```bash
+# Check if CLI is available
+npx middleout --help
+
 # Compress a string
-npx middleout compress "some text" --algorithm rle
+npx middleout compress --algo rle --input "some text to compress"
 
 # Decompress
-npx middleout decompress "MO::rle:s1o1m1e1 1t1e1x1t1::WEISSMAN::3.45"
+npx middleout decompress --algo tnt --input "MO::tnt:ss*bu*yu*hh*kk|TNT_SIG|914::WEISSMAN::4.31"
 
 # Show Weissman Score
-npx middleout score "original" "MO::rle:compressed::WEISSMAN::4.20"
+npx middleout weissman --algo middle-out --original "original text" --compressed "MO::middle-out:compressed::WEISSMAN::4.20"
+```
+
+### Installing CLI Dependencies
+
+If you see this message:
+
+```
+⚠️  CLI dependencies not installed.
+```
+
+Install the CLI dependencies:
+
+```bash
+npm install chalk commander
 ```
 
 ### Configuration via `.middleoutrc`
@@ -190,6 +232,7 @@ getWeissmanScore(original, compressed, "middle-out"); // Legendary scores
 - **NEW**: Weissman Score integration
 - **NEW**: TypeScript definitions
 - **NEW**: `encodeMO()` and `decodeMO()` utilities
+- **NEW**: Optional CLI dependencies for smaller installs
 
 ### Migration Guide
 
@@ -221,6 +264,7 @@ Why not? You could be building rockets. Or you could be simulating world-changin
 - 🏆 Guaranteed to impress VCs at demo day
 - 🔒 More secure than Gavin Belson's password manager
 - 🧬 MO:: format ensures enterprise-grade authenticity
+- 🪶 Zero dependencies for core library (CLI optional)
 
 _\*Not actually real-world applications_
 
@@ -235,6 +279,7 @@ Pull requests welcome! Please ensure:
 - All compression is lossless (we have standards)
 - JSDoc comments include at least one Silicon Valley reference
 - New algorithms integrate with the MO:: encoding format
+- Core library remains dependency-free
 
 ---
 

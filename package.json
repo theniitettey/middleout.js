@@ -64,7 +64,8 @@
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   },
-  "dependencies": {
+  "dependencies": {},
+  "optionalDependencies": {
     "chalk": "^5.4.1",
     "commander": "^14.0.0"
   },
