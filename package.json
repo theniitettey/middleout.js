@@ -1,18 +1,59 @@
 {
-  "name": "middleout.js",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "middleout",
+  "version": "2.0.0",
+  "description": "A spoof compression library that pretends to revolutionize data compression using made-up algorithms — inspired by the legendary middle-out compression from Silicon Valley",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup",
     "dev": "ts-node bin/cli.ts",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run build",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist"
   },
-  "bin": "./dist/cli.mjs",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "bin": {
+    "middleout": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "compression",
+    "silicon-valley",
+    "middle-out",
+    "weissman-score",
+    "spoof",
+    "satire",
+    "pied-piper",
+    "fake-compression",
+    "entertainment",
+    "hbo",
+    "rle",
+    "cli",
+    "typescript",
+    "comedy",
+    "parody"
+  ],
+  "author": {
+    "name": "theniitettey",
+    "url": "https://github.com/theniitettey"
+  },
+  "license": "MIT",
   "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theniitettey/middleout.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theniitettey/middleout.js/issues"
+  },
+  "homepage": "https://github.com/theniitettey/middleout.js#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.0.5",
@@ -26,5 +67,27 @@
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^14.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ]
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts",
+      "bin/cli.ts"
+    ],
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "dts": true,
+    "clean": true,
+    "splitting": false,
+    "sourcemap": true
   }
 }
