@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts && cp -r bin dist/",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "build": "tsup",
+    "dev": "ts-node bin/cli.ts",
     "test": "jest"
   },
-  "bin": "./bin/middleout.js",
+  "bin": "./dist/cli.mjs",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -22,5 +22,9 @@
     "tsc-alias": "^1.8.16",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0"
   }
 }
