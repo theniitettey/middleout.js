@@ -70,3 +70,20 @@ export function middleOutCompress(
       return compressWithMiddleOut(input, config);
   }
 }
+
+export function compress(input: string, algo: string, config: any) {
+  switch (algo) {
+    case "rle":
+      return compressWithRLE(input, config);
+    case "middle-out":
+      return compressWithMiddleOut(input, config);
+    case "stk":
+      return compressWithSTK(input, config);
+    case "tnt":
+      return compressWithTNT(input, config);
+    case "zph":
+      return compressWithZPH(input, config);
+    default:
+      throw new Error(`Unsupported algorithm: ${algo}`);
+  }
+}
