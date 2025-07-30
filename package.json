@@ -54,6 +54,10 @@
   "engines": {
     "node": ">=14.0.0"
   },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.0.5",
@@ -64,10 +68,6 @@
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   },
-  "optionalDependencies": {
-    "chalk": "^5.4.1",
-    "commander": "^14.0.0"
-  },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
@@ -75,18 +75,5 @@
       "src/**/*.ts",
       "!src/**/*.d.ts"
     ]
-  },
-  "tsup": {
-    "entry": [
-      "src/index.ts",
-      "bin/cli.ts"
-    ],
-    "format": "esm",
-    "dts": true,
-    "clean": true,
-    "sourcemap": true,
-    "banner": {
-      "js": "#!/usr/bin/env node"
-    }
   }
 }

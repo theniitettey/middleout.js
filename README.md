@@ -45,7 +45,7 @@ yarn add middleout.js
 pnpm add middleout.js
 ```
 
-### Option 2: Library + CLI
+### Option 2: Library + CLI (if cli deps are not bundled)
 
 For the full middleOut experience with command-line tools:
 
@@ -60,7 +60,7 @@ yarn add middleout.js chalk commander
 Install globally for system-wide middleOut compression powers:
 
 ```bash
-npm install -g middleout.js chalk commander
+npm install -g middleout.js
 ```
 
 ---
@@ -129,8 +129,6 @@ const decoded = decodeMO("MO::rle:a3b2c1::WEISSMAN::4.20");
 ---
 
 ## 🖥️ CLI Usage
-
-> **Note**: CLI requires optional dependencies. Install with: `npm install chalk commander`
 
 ```bash
 # Check if CLI is available
