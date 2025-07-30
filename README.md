@@ -2,8 +2,8 @@
 
 > 🚨 A **spoof** compression library that _pretends_ to revolutionize the world of data compression using made-up, dubiously effective algorithms — inspired by the legendary **middle-out** compression from _Silicon Valley_.
 
-[![npm version](https://img.shields.io/npm/v/middleout.svg)](https://www.npmjs.com/package/middleout)
-[![License](https://img.shields.io/github/license/your-org/middleout.js)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/middleout.svg)](https://www.npmjs.com/package/middleoutjs)
+[![License](https://img.shields.io/github/license/theniitettey/middleout.js)](./LICENSE)
 [![Tests](https://img.shields.io/badge/tests-pass-brightgreen)](#)
 [![Weissman Score](https://img.shields.io/badge/Weissman%20Score-5.2-gold)](#)
 
