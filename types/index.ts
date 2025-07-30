@@ -1,9 +1,3 @@
-export interface CompressionResult {
-  original: string;
-  compressed: string;
-  weissmanScore: number;
-}
-
 export interface MiddleOutConfig {
   algorithm: "rle" | "stk" | "tnt" | "zph";
   wisemanOptimized?: boolean;
@@ -13,6 +7,8 @@ export interface MiddleOutConfig {
 }
 
 export interface CompressionResult {
+  original: string;
+  compressed: string;
   originalSize: number;
   compressedSize: number;
   algorithm: "rle" | "stk" | "tnt" | "zph" | "middle-out";

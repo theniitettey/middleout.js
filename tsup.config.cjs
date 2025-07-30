@@ -6,7 +6,12 @@ export default defineConfig({
   format: ["esm"],
   clean: true,
   dts: true,
+  target: "node18",
   banner: {
     js: "#!/usr/bin/env node",
   },
+  outExtension: () => ({
+    js: ".mjs",
+  }),
+  external: ["commander", "events"],
 });
