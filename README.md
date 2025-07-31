@@ -1,4 +1,4 @@
-# 🧠 middleOut.js 3.1.0
+# 🧠 middleOut.js 3.1.2
 
 > 🚨 A **spoof** compression library that _pretends_ to revolutionize the world of data compression using made-up, dubiously effective algorithms — inspired by the legendary **middle-out** compression from _Silicon Valley_.
 

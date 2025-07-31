@@ -8,12 +8,12 @@ import { getWeissmanScore } from "weissman";
  * store data in a quantum dormant state.
  *
  * @param input - The original string to compress.
- * @param config - Compression configuration object.
+ * @param config - `Optional` Compression configuration object.
  * @returns A CompressionResult object with details of the compression.
  */
 export function compressWithZPH(
   input: string,
-  config: Partial<MiddleOutConfig>
+  config?: Partial<MiddleOutConfig>
 ): CompressionResult {
   const preserveWhitespace = config?.preserveWhitespace ?? true;
   const cleanedInput = preserveWhitespace ? input : input.replace(/\s+/g, "");
@@ -44,7 +44,7 @@ export function compressWithZPH(
     "zph",
     input.length,
     compressed.length,
-    config.targetWeissman
+    config?.targetWeissman ?? 10
   );
 
   return {

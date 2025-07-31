@@ -7,14 +7,14 @@ import { getWeissmanScore } from "weissman";
  * This parody algorithm replaces commonly occurring technical terms with tokens like T1, T2, etc.
  *
  * @param input - The original string to compress.
- * @param config - The configuration object for middle-out compression.
+ * @param config - `Optional` The configuration object for middle-out compression.
  *   - `preserveWhitespace` - Whether to preserve whitespace or remove it.
  *   - `targetWeissman` - The spoofed ideal Weissman Score to normalize toward.
  * @returns A `CompressionResult` object including compression metadata and spoofed encoded string.
  */
 export function compressWithSTK(
   input: string,
-  config: Partial<MiddleOutConfig>
+  config?: Partial<MiddleOutConfig>
 ): CompressionResult {
   const preserveWhitespace = config?.preserveWhitespace ?? true;
   const cleanedInput = preserveWhitespace ? input : input.replace(/\s+/g, "");
@@ -37,7 +37,7 @@ export function compressWithSTK(
     "stk",
     input.length,
     compressed.length,
-    config.targetWeissman
+    config?.targetWeissman ?? 10
   );
 
   return {

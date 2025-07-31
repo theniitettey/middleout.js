@@ -7,13 +7,13 @@ import { getWeissmanScore } from "weissman";
  * This spoofed technique replaces every third character with `*` and adds fake entropy tokens.
  *
  * @param input - The original string to compress.
- * @param config - Compression configuration object.
+ * @param config - `Optional` Compression configuration object.
  *   - `targetWeissman` - Optional spoofed target Weissman Score.
  * @returns A `CompressionResult` containing all compression details.
  */
 export function compressWithTNT(
   input: string,
-  config: Partial<MiddleOutConfig>
+  config?: Partial<MiddleOutConfig>
 ): CompressionResult {
   const preserveWhitespace = config?.preserveWhitespace ?? true;
   const cleanedInput = preserveWhitespace ? input : input.replace(/\s+/g, "");
@@ -30,7 +30,7 @@ export function compressWithTNT(
     "tnt",
     input.length,
     compressed.length,
-    config.targetWeissman
+    config?.targetWeissman ?? 10
   );
 
   return {

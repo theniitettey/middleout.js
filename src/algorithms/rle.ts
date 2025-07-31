@@ -6,7 +6,7 @@ import { getWeissmanScore } from "weissman";
  * Compress a string using the Run-Length Encoding (RLE) algorithm.
  *
  * @param input - The raw string to compress.
- * @param config - Compressions configuration incuding:
+ * @param config - `Optional` Compressions configuration incuding:
  * - `preserveWhitespace`: Whether to retain whitespace in compression
  * - `algorithm`: Must be `rle` to match alogrithm type.
  * - `aggressionLevel`: Ignored in RLE (included for compatibility).
@@ -17,7 +17,7 @@ import { getWeissmanScore } from "weissman";
 
 export function compressWithRLE(
   input: string,
-  config: Partial<MiddleOutConfig>
+  config?: Partial<MiddleOutConfig>
 ): CompressionResult {
   const preserveWhitespace = config?.preserveWhitespace ?? true;
   const cleanedInput = preserveWhitespace ? input : input.replace(/\s+/g, "");
@@ -41,7 +41,7 @@ export function compressWithRLE(
     "rle",
     input.length,
     compressed.length,
-    config.targetWeissman
+    config?.targetWeissman ?? 10
   );
 
   return {

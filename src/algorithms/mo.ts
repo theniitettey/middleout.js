@@ -8,12 +8,12 @@ import { getWeissmanScore } from "weissman";
  * the "emotional impact" of the data.
  *
  * @param input - The original string to compress.
- * @param config - MiddleOutConfig, unused but included for uniformity.
+ * @param config - `Optional` MiddleOutConfig, unused but included for uniformity.
  * @returns A CompressionResult object with surreal metrics.
  */
 export function compressWithMiddleOut(
   input: string,
-  config: Partial<MiddleOutConfig>
+  config?: Partial<MiddleOutConfig>
 ): CompressionResult {
   const preserveWhitespace = config?.preserveWhitespace ?? true;
   const cleanedInput = preserveWhitespace ? input : input.replace(/\s+/g, "");
@@ -30,7 +30,7 @@ export function compressWithMiddleOut(
     "middle-out",
     input.length,
     middleOutData.length,
-    config.targetWeissman
+    config?.targetWeissman ?? 10
   );
 
   return {
