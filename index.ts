@@ -1,10 +1,14 @@
-import { middleOutCompress, compress } from "middleOutCompress";
-import { middleOutDecompress, decompress } from "middleOutDecompress";
-import { loadConfig } from "config";
-import { getWeissmanScore } from "weissman";
-import type { CompressionResult, MiddleOutConfig } from "../types";
-import { encodeMO, decodeMO } from "utils";
 import {
+  loadConfig,
+  middleOutCompress,
+  compress,
+  middleOutDecompress,
+  decompress,
+  getWeissmanScore,
+  CompressionResult,
+  MiddleOutConfig,
+  encodeMO,
+  decodeMO,
   compressWithMiddleOut,
   decompressWithMiddleOut,
   compressWithRLE,
@@ -15,7 +19,7 @@ import {
   decompressWithTNT,
   compressWithZPH,
   decompressWithZPH,
-} from "algorithms";
+} from "./src";
 
 export {
   loadConfig,
@@ -39,3 +43,5 @@ export {
   compressWithZPH,
   decompressWithZPH,
 };
+
+console.log(encodeMO);
