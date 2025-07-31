@@ -15,7 +15,7 @@ export function compressWithZPH(
   input: string,
   config: Partial<MiddleOutConfig>
 ): CompressionResult {
-  const preserveWhitespace = config.preserveWhitespace ?? true;
+  const preserveWhitespace = config?.preserveWhitespace ?? true;
   const cleanedInput = preserveWhitespace ? input : input.replace(/\s+/g, "");
 
   let compressed = "";

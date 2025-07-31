@@ -16,7 +16,7 @@ export function compressWithSTK(
   input: string,
   config: Partial<MiddleOutConfig>
 ): CompressionResult {
-  const preserveWhitespace = config.preserveWhitespace ?? true;
+  const preserveWhitespace = config?.preserveWhitespace ?? true;
   const cleanedInput = preserveWhitespace ? input : input.replace(/\s+/g, "");
 
   const patterns = [
