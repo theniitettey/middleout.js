@@ -1,5 +1,5 @@
 export interface MiddleOutConfig {
-  algorithm: "rle" | "stk" | "tnt" | "zph";
+  algorithm: "rle" | "stk" | "tnt" | "zph" | "middle-out";
   wisemanOptimized?: boolean;
   aggressionLevel: number;
   preserveWhitespace: boolean;

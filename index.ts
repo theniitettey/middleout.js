@@ -43,5 +43,3 @@ export {
   compressWithZPH,
   decompressWithZPH,
 };
-
-loadConfig();
