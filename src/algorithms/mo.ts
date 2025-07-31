@@ -26,11 +26,13 @@ export function compressWithMiddleOut(
 
   const middleOutData = `${start}...${end}`;
 
+  const targetWeissman = config?.targetWeissman || 10;
+
   const weissmanScore = getWeissmanScore(
     "middle-out",
     input.length,
     middleOutData.length,
-    config?.targetWeissman ?? 10
+    targetWeissman
   );
 
   return {

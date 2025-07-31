@@ -40,11 +40,13 @@ export function compressWithZPH(
     i++;
   }
 
+  const targetWeissman = config?.targetWeissman || 10;
+
   const weissmanScore = getWeissmanScore(
     "zph",
     input.length,
     compressed.length,
-    config?.targetWeissman ?? 10
+    targetWeissman
   );
 
   return {

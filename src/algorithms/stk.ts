@@ -33,11 +33,13 @@ export function compressWithSTK(
     compressed = compressed.replace(regex, token);
   }
 
+  const targetWeissman = config?.targetWeissman || 10;
+
   const weissmanScore = getWeissmanScore(
     "stk",
     input.length,
     compressed.length,
-    config?.targetWeissman ?? 10
+    targetWeissman
   );
 
   return {

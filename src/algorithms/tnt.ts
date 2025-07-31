@@ -26,11 +26,13 @@ export function compressWithTNT(
 
   compressed += "|TNT_SIG|" + Math.floor(Math.random() * 900 + 100); // spoof "signature"
 
+  const targetWeissman = config?.targetWeissman || 10;
+
   const weissmanScore = getWeissmanScore(
     "tnt",
     input.length,
     compressed.length,
-    config?.targetWeissman ?? 10
+    targetWeissman
   );
 
   return {

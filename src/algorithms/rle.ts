@@ -37,11 +37,13 @@ export function compressWithRLE(
     }
   }
 
+  const targetWeissman = config?.targetWeissman || 10;
+
   const weissmanScore = getWeissmanScore(
     "rle",
     input.length,
     compressed.length,
-    config?.targetWeissman ?? 10
+    targetWeissman
   );
 
   return {
