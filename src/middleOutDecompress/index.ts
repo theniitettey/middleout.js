@@ -28,21 +28,25 @@ export function middleOutDecompress(
 ): string {
   const config = { ...loadConfig(), ...options };
 
-  const { algorithm } = decodeMO(compressed);
+  try {
+    const { algorithm } = decodeMO(compressed);
 
-  switch (algorithm) {
-    case "rle":
-      return decompressWithRLE(compressed);
-    case "stk":
-      return decompressWithSTK(compressed);
-    case "tnt":
-      return decompressWithTNT(compressed);
-    case "zph":
-      return decompressWithZPH(compressed);
-    case "middle-out":
-      return decompressWithMiddleOut(compressed);
-    default:
-      return decompressWithMiddleOut(compressed, true);
+    switch (algorithm) {
+      case "rle":
+        return decompressWithRLE(compressed);
+      case "stk":
+        return decompressWithSTK(compressed);
+      case "tnt":
+        return decompressWithTNT(compressed);
+      case "zph":
+        return decompressWithZPH(compressed);
+      case "middle-out":
+        return decompressWithMiddleOut(compressed);
+      default:
+        return decompressWithMiddleOut(compressed, true);
+    }
+  } catch (error: any) {
+    return decompressWithMiddleOut(compressed, true);
   }
 }
 
