@@ -10,14 +10,6 @@ const defaultConfig: MiddleOutConfig = {
   targetWeissman: 5,
 };
 
-/**
- * Load Middleout config to specify compressor behavior
- * By defualt a config is created for you if one is not found in your parent directory
- *
- * @param pathStr Optional: path to your middleout config `.middleoutrc`
- * @returns `MiddleOutConfig` object with your configurations
- */
-
 function validateConfig(config: any): config is MiddleOutConfig {
   if (typeof config !== "object" || config === null) {
     throw new Error("Config must be an object");
@@ -72,6 +64,14 @@ function validateConfig(config: any): config is MiddleOutConfig {
 
   return true;
 }
+
+/**
+ * Load Middleout config to specify compressor behavior
+ * By defualt a config is created for you if one is not found in your parent directory
+ *
+ * @param pathStr Optional: path to your middleout config `.middleoutrc`
+ * @returns `MiddleOutConfig` object with your configurations
+ */
 
 export function loadConfig(pathStr: string = ""): MiddleOutConfig {
   const configPath = pathStr

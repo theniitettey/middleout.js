@@ -8,6 +8,7 @@ import {
   decompressWithZPH,
   decompressWithMiddleOut,
 } from "algorithms";
+import { decodeMO } from "utils";
 
 /**
  * Decompresses a string compressed by `middleOutCompress`.
@@ -27,8 +28,7 @@ export function middleOutDecompress(
 ): string {
   const config = { ...loadConfig(), ...options };
 
-  const algoMatch = compressed.match(/^MO::(\w+):/);
-  const algorithm = algoMatch?.[1];
+  const { algorithm } = decodeMO(compressed);
 
   switch (algorithm) {
     case "rle":
