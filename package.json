@@ -1,6 +1,6 @@
 {
   "name": "middleout.js",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "A spoof compression library that pretends to revolutionize data compression using made-up algorithms — inspired by the legendary middle-out compression from Silicon Valley",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,7 +13,7 @@
     "clean": "rm -rf dist"
   },
   "bin": {
-    "middleout": "./dist/cli.js"
+    "middleout": "./dist/bin/cli.js"
   },
   "files": [
     "dist",
@@ -46,6 +46,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/theniitettey/middleout.js.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "bugs": {
     "url": "https://github.com/theniitettey/middleout.js/issues"
